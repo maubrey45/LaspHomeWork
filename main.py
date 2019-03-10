@@ -37,44 +37,29 @@ def main():
     with open('kerbalsTemp.json', 'r') as myfile:
         data=myfile.read()
     obj = json.loads(data)
-    print("[");
     tempString = "["
     for i in range(4): 
         if(i < 3):
-            print("\t {'Id': " + '"' + str(obj[i]['Id']) + "'")
-            print("\t 'FirstName': " + '"' + str(obj[i]['FirstName']) + '"')
-            print("\t 'LastName': " + '"' + str(obj[i]['LastName']) + '"')
-            print("\t 'Job': " + '"' + str(obj[i]['Job']) + '"')
-            print("\t 'Level': " + '"' + str(obj[3]['Level']) + '"')
-            print("\t 'IsFemale': " + '"' + str(obj[3]['IsFemale']) + '"')
-            print("\t 'Courage': " + '"' + str(obj[3]['Courage']) + '"')
-            print("\t 'Stupidity': " + '"' + str(obj[3]['Stupidity']) + '"')
-            print("\t 'BadS': " + '"' + str(obj[3]['BadS']) + '"},')
-            
             tempString1 = tempString + '{"Id": "'+ str(obj[i]['Id']) + '", "FirstName": "' 
             tempString2 = tempString1 + str(obj[i]['FirstName']) + '", "LastName": "' + str(obj[i]['LastName'])
             tempString3 = tempString2 + '", "Job": "' + str(obj[i]['LastName']) + '", "Level": "'
-            tempString4 = tempString3 
+            tempString4 = tempString3 + str(obj[i]['Level']) + '", "IsFemale": "'
+            tempString5 = tempString4 + str(obj[i]['IsFemale']) + '", "Courage": "'
+            tempString6 = tempString5 + str(obj[i]['Courage']) + '", "Stupidity": "'
+            tempString7 = tempString6 + str(obj[i]['Stupidity']) + '", "BadS": "'
+            tempString8 = tempString7 + str(obj[i]['BadS']) + '"},'
+            tempString = tempString8
         else: 
-            print("\t {'Id': " + '"' + str(obj[i]['Id']) + "'")
-            print("\t 'FirstName': " + '"' + str(obj[i]['FirstName']) + '"')
-            print("\t 'LastName': " + '"' + str(obj[i]['LastName']) + '"')
-            print("\t 'Job': " + '"' + str(obj[i]['Job']) + '"')
-            print("\t 'Level': " + '"' + str(obj[3]['Level']) + '"')
-            print("\t 'IsFemale': " + '"' + str(obj[3]['IsFemale']) + '"')
-            print("\t 'Courage': " + '"' + str(obj[3]['Courage']) + '"')
-            print("\t 'Stupidity': " + '"' + str(obj[3]['Stupidity']) + '"')
-            print("\t 'BadS': " + '"' + str(obj[3]['BadS']) + '"}')
-    
-            '''tempString = tempString + '{"Id": "'+ str(obj[i]['Id']) + '", "FirstName": "' + str(obj[i]['FirstName'] + '",' 
-                                        + '"LastName": "' + str(obj[i]['LastName']) 
-                                        + '",' + '"Job": "' + str(obj[i]['Job']) + '",'
-                                        + '"Level": "' + str(obj[3]['Level']) + '",' 
-                                        + '"IsFemale": "' + str(obj[3]['IsFemale']) + '",'
-                                        + '"Courage": "' + str(obj[3]['Courage']) + '",' 
-                                        + '"Stupidity": "' + str(obj[3]['Stupidity']) + '",'
-                                        + '"BadS": "' + str(obj[3]['BadS']) + '"}]' '''
-    print("]")
+            tempString1 = tempString + '{"Id": "'+ str(obj[i]['Id']) + '", "FirstName": "' 
+            tempString2 = tempString1 + str(obj[i]['FirstName']) + '", "LastName": "' + str(obj[i]['LastName'])
+            tempString3 = tempString2 + '", "Job": "' + str(obj[i]['LastName']) + '", "Level": "'
+            tempString4 = tempString3 + str(obj[i]['Level']) + '", "IsFemale": "'
+            tempString5 = tempString4 + str(obj[i]['IsFemale']) + '", "Courage": "'
+            tempString6 = tempString5 + str(obj[i]['Courage']) + '", "Stupidity": "'
+            tempString7 = tempString6 + str(obj[i]['Stupidity']) + '", "BadS": "'
+            tempString8 = tempString7 + str(obj[i]['BadS']) + '"}]'
+            tempString =tempString8
+    print(tempString)
     myfile.close()
  
 if __name__ == "__main__":
