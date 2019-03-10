@@ -16,7 +16,8 @@ def main():
     csvfile = open('kerbals.csv', 'r')
     csv_headings = next(csvfile)
     jsonfile = open('kerbalsTemp.json', 'w')
-    #We know that all itesm are 
+    #What we are doing here is taking all the items from the csv file and then dumps the contants of the csv file
+    #into a json file which we will user later. 
     i = 0;
     fieldnames = ("Id","FirstName","LastName","Job","Level", "IsFemale", "Courage", "Stupidity", "BadS")
     reader = csv.DictReader(csvfile, fieldnames)
@@ -29,11 +30,10 @@ def main():
     jsonfile.write("]")
     csvfile.close()
     jsonfile.close()
-    #our next goal since we have file that holds the json list now we must print that out....how do we do that. 
-    #Alright we open the file and read everything on each line and print it out. 
     
-    #The next step is to take the new file and print it out so it can be itnerpited correctly. 
-    #we do this by opeing the file and then grabbing the data. Then we print it out. 
+    #For this step I read in the json file I created and then printed it out so it can work with teh jsoninit
+    #how it does that is by opening the json file we created and then taking the data from that and formating it
+    #such taht the jsoninit will accept it as json array. 
     with open('kerbalsTemp.json', 'r') as myfile:
         data=myfile.read()
     obj = json.loads(data)
@@ -59,8 +59,9 @@ def main():
             tempString7 = tempString6 + str(obj[i]['Stupidity']) + '", "BadS": "'
             tempString8 = tempString7 + str(obj[i]['BadS']) + '"}]'
             tempString =tempString8
-    print(tempString)
+    #Now that we have made the string that will hold the text of a json and close the file. 
     myfile.close()
+    print(tempString)
  
 if __name__ == "__main__":
     main()
